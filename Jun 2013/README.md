@@ -1,21 +1,16 @@
-#Workflows
-=========
-
-My workflow is ever shifting. This repository is an attempt to document how it changes and what tools and techniques I'm using or used. 
-
-##Current
+#June 2013
 ===
-Date: 2013-08-07
 
+Unsure of the exact date as I update this prior to creating this repository. 
 
+  
 ### Tools
 ===
-* [Live Style](http://livestyle.emmet.io/) - Currently Free, but will be paid at some point - Beta
-* [Live Sync](https://github.com/sloped/live_sync) - Open Source/Self Authored/ Revision 0237b5616
+* [Live Reload](http://livereload.com/) - $9.99
+* [Live Sync](https://github.com/sloped/live_sync) - Open Source/Self Authored/ Revision bec5b7731252
 * [Sublime Text](http://www.sublimetext.com/) - $70 - Theme Flatland, Color Scheme Dark
 * Rsync
 * Chrome
-* [Watchman](https://github.com/facebook/watchman) - Open Source/No Binaries so has to be built
 
 ### Process
 ====
@@ -35,24 +30,18 @@ To manage keeping my local and the server files in sync I use a combination of t
   `setup_live_sync server:/remote/file/path/`
   * Then, inside of that directory I can run `live_sync -s` to pull down all the files form the remote directory. 
   * I will then open the directory in Sublime Text, modify the project file as necessary, Save the project folder I keep version controlled but seperate from actual working files
-  * When I wish to start syncing files I run `live_sync -w` This creates a watchman trigger which runs `live_sync -r` as files change. 
-  * When I start working on a site, I open Chrome Dev Tools, click on Live Styles, and activate Live Styles and associate css files on the server with css files in my editor. This allows me to immediately see changes in my browser and make changes in dev tools that will be instantly reflected in my editor. 
-  
-## Benefits
+  * The next step is to add the project file to Live Reload. Live Reload will watch a project directory for you and update any browser connected to it in real time. It can also execute a command when files change. I ask Live Reload to run `live_sync -r` after a file changes. This uploads all changes to the remote directory. 
+  * In Chrome/Safari/Firefox I'll install and activate the Live Sync extention on any files I'm working on. This lets me edit CSS and see all my saved changes immediatly and also refreshes the browser whenever I save a static file that requires a reload such as .html or .js files. 
+  ## Benefits
 ===
 * Don't have to think about keeping the server in sync, done automatically
-* Live Sync is smart enough to disable the watchman trigger and enable it only after the rsync process is completed
-* Dev Tool Editing is great for perfecting layouts
-* Instant Feedback to edits make in the edior. 
+* Live Reload can be used with a js snippet to allow refreshing stylesheets immediatly in IE/Mobile Devices
 * Local files mean fast searching through Sublime Text Projects
   
 ##Shortcomings
 ===
 
 * Have to manually pull down all changes recieved when I update my server files through version control to bring back any changes made by others
-* Requieres building binaries of watchman 
+* Live Reload senses file changes made by `live_sync -s` and reruns the `live_sync -r` command which can potentially cause a file to be overwritten before it's synced to the local directory
+* Can't utilize any sort of dev tool editing
 * live_sync is sort of fragile
-* Instant Feedback of styles not possible in IE or Mobile at this time. 
-
-
-

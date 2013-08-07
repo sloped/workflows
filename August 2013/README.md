@@ -1,10 +1,5 @@
-#Workflows
-=========
-
-My workflow is ever shifting. This repository is an attempt to document how it changes and what tools and techniques I'm using or used. 
-
-##Current
-===
+#August 7th 2013
+=======
 Date: 2013-08-07
 
 
@@ -53,6 +48,4 @@ To manage keeping my local and the server files in sync I use a combination of t
 * Requieres building binaries of watchman 
 * live_sync is sort of fragile
 * Instant Feedback of styles not possible in IE or Mobile at this time. 
-
-
 
